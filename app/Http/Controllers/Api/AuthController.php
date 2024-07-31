@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
     public function register(Request $request)
     {
@@ -58,8 +58,9 @@ class AuthController extends Controller
             'user' => $user,
             'token' => $token
         ];
-
-        return response($response, 201);
+        /* dd($response); */
+       /*  return response($response, 201); */
+        return $this->sendResponse($response, 'User login successfully.');
 
     }
 
